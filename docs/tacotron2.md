@@ -17,6 +17,8 @@
 
 编码器输入字符使用经过学习的512维character embedding来表示，它们通过3个卷积层的堆栈，每个卷积层包含512个5×1的过滤器，即每个过滤器跨度为5个字符，然后是批量标准化和ReLU激活。最终卷积层的输出被传递到包含512个单元(每个方向256个)的单个双向[LSTM](https://sysu16340234.github.io/tacotron2_learning/LSTM)层,以生成编码特征.
 
+编码器输出由attention网络消费，attention网络将完整编码序列概括为每个解码器输出步骤的固定长度上下文矢量.本文使用的attention模型是location-sensitive attention,其扩展了附加注意机制,使用来自先前解码器时间步长的累积attention权重作为附加特征.其中一些子序列被解码器重复或忽略.在将输入和位置特征投影到128维隐藏表示之后计算attention概率.使用32个长度为31的1-D卷积滤波器计算位置特征.
+
 解码器:
 
 ![decoder](https://github.com/sysu16340234/tacotron2_learning/blob/master/decoder.png?raw=true)
