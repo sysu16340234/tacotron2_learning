@@ -15,4 +15,8 @@
 
 ![encoder](https://github.com/sysu16340234/tacotron2_learning/blob/master/encoder.png?raw=true)
 
-编码器输入字符使用经过学习的512维character embedding来表示，它们通过3个卷积层的堆栈，每个卷积层包含512个5×1的过滤器，即每个过滤器跨度为5个字符，然后是批量标准化和ReLU激活。最终卷积层的输出被传递到包含512个单元(每个方向256个)的单个双向[LSTM]()层.以生成编码特征.
+编码器输入字符使用经过学习的512维character embedding来表示，它们通过3个卷积层的堆栈，每个卷积层包含512个5×1的过滤器，即每个过滤器跨度为5个字符，然后是批量标准化和ReLU激活。最终卷积层的输出被传递到包含512个单元(每个方向256个)的单个双向[LSTM](https://sysu16340234.github.io/tacotron2_learning/LSTM)层,以生成编码特征.
+
+解码器:
+
+![decoder](https://github.com/sysu16340234/tacotron2_learning/blob/master/decoder.png?raw=true)
